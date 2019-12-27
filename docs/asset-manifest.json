@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fcc-random-quote/static/css/main.70e2d1da.chunk.css",
+    "main.css": "/fcc-random-quote/static/css/main.a374eacf.chunk.css",
     "main.js": "/fcc-random-quote/static/js/main.22f4fd23.chunk.js",
     "main.js.map": "/fcc-random-quote/static/js/main.22f4fd23.chunk.js.map",
     "runtime-main.js": "/fcc-random-quote/static/js/runtime-main.0608c199.js",
@@ -8,16 +8,16 @@
     "static/js/2.995593bc.chunk.js": "/fcc-random-quote/static/js/2.995593bc.chunk.js",
     "static/js/2.995593bc.chunk.js.map": "/fcc-random-quote/static/js/2.995593bc.chunk.js.map",
     "index.html": "/fcc-random-quote/index.html",
-    "precache-manifest.dd4c4c4a64f5bdc718c05df34c9d851f.js": "/fcc-random-quote/precache-manifest.dd4c4c4a64f5bdc718c05df34c9d851f.js",
+    "precache-manifest.550ab13b1c94453aedcfe6f5de1393eb.js": "/fcc-random-quote/precache-manifest.550ab13b1c94453aedcfe6f5de1393eb.js",
     "service-worker.js": "/fcc-random-quote/service-worker.js",
-    "static/css/main.70e2d1da.chunk.css.map": "/fcc-random-quote/static/css/main.70e2d1da.chunk.css.map",
+    "static/css/main.a374eacf.chunk.css.map": "/fcc-random-quote/static/css/main.a374eacf.chunk.css.map",
     "static/js/2.995593bc.chunk.js.LICENSE": "/fcc-random-quote/static/js/2.995593bc.chunk.js.LICENSE",
     "static/media/index.css": "/fcc-random-quote/static/media/Twitter_Logo_Blue.a7a925c7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0608c199.js",
     "static/js/2.995593bc.chunk.js",
-    "static/css/main.70e2d1da.chunk.css",
+    "static/css/main.a374eacf.chunk.css",
     "static/js/main.22f4fd23.chunk.js"
   ]
 }
