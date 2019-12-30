@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
@@ -46,73 +46,53 @@ const quotes = [
 	}
 ];
 
-class Quote extends React.Component {
-	render() {
-		return (
-			<div className="box">
-				<p id="text">{this.props.quote.text}</p>
-				<p id="author">{this.props.quote.author}</p>
-			</div>
-		);
-	}
+function Quote(props) {
+	return (
+		<div className="box">
+			<p id="text">{props.quote.text}</p>
+			<p id="author">{props.quote.author}</p>
+		</div>
+	);
 }
 
-class QuoteButton extends React.Component {
-	render() {
-		return (
-			<button id="new-quote" onClick={this.props.getQuote}>{'A New Quote'}</button>
-		);
-	}
+function QuoteButton(props) {
+	return (
+		<button id="new-quote" onClick={props.getQuote}>A New Quote</button>
+	);
 }
 
-class TweetButton extends React.Component {
-	constructor(props) {
-		super(props);
-		this.encodedQuote = this.encodedQuote.bind(this);
+function TweetButton(props) {
+	const encodedQuote = () => {
+		return encodeURIComponent('"' + props.quote.text + '" ' + props.quote.author);
 	}
-
-	encodedQuote() {
-		return encodeURIComponent('"' + this.props.quote.text + '" ' + this.props.quote.author);
-	}
-	render() {
-		return (
-			<a href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='+this.encodedQuote()} id="tweet-quote" aria-label="Tweet this quote">
-				<i></i>
-			</a>
-		);
-	}
+	
+	return (
+		<a href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='+encodedQuote()} id="tweet-quote" aria-label="Tweet this quote">
+			<i></i>
+		</a>
+	);
 }
 
-class QuoteBox extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			currentQuote: this.getRandomQuote()
-		};
-		this.setRandomQuote = this.setRandomQuote.bind(this);
-	}
-
-	getRandomQuote() {
+function QuoteBox() {
+	const getRandomQuote = () => {
 		return quotes[Math.floor(Math.random() * (quotes.length-1))];
 	}
 
-	setRandomQuote() {
-		this.setState({
-			currentQuote: this.getRandomQuote()
-		});
+	const [currentQuote, setCurrentQuote] = useState(getRandomQuote);
+
+	const setRandomQuote = () => {
+		setCurrentQuote(getRandomQuote());
 	}
 
-	render () {
-		return (
-			<div id="quote-box">
-				<Quote quote={this.state.currentQuote} />
-				<div className="buttons">
-					<QuoteButton getQuote={this.setRandomQuote} />
-					<TweetButton quote={this.state.currentQuote}/>
-				</div>
+	return (
+		<div id="quote-box">
+			<Quote quote={currentQuote} />
+			<div className="buttons">
+				<QuoteButton getQuote={setRandomQuote} />
+				<TweetButton quote={currentQuote}/>
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 ReactDOM.render(<QuoteBox />, document.getElementById('root'));
